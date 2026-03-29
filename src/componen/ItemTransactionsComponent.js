@@ -1,11 +1,6 @@
-const {
-  View,
-  Image,
-  StyleSheet,
-  Text,
-} = require('react-native');
+const {View, Image, StyleSheet, Text} = require('react-native');
 
-const ItemTransactionsComponent = (props) => {
+const ItemTransactionsComponent = props => {
   return (
     <View style={styles.itemTransactions}>
       <View style={[styles.iconContainer, {backgroundColor: props.color}]}>
@@ -31,7 +26,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 5,
     padding: 10,
-
   },
   iconContainer: {
     width: 50,

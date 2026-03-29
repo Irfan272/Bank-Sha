@@ -34,7 +34,8 @@ class AccountScreens extends Component {
             </View>
 
             {/* Edit Profile */}
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('ProfileScreen')}>
               <View style={styles.itemTransactions}>
                 <View style={styles.iconContainer}>
                   <Image
@@ -49,7 +50,8 @@ class AccountScreens extends Component {
             </TouchableOpacity>
 
             {/* My PIN */}
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('PinScreen')}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('PinScreen')}>
               <View style={styles.itemTransactions}>
                 <View style={styles.iconContainer}>
                   <Image

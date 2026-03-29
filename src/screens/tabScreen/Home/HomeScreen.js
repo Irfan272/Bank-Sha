@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import {withNavigation} from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {sendPeopleData} from './data/sendPeople';
 import {ListFrendlyData} from './data/frendlyTips';
@@ -94,7 +95,7 @@ class HomeScreen extends Component {
       case 10:
         this.props.navigation.navigate('TravelScreen');
         return;
-      default: 
+      default:
         return;
     }
   }
@@ -104,149 +105,133 @@ class HomeScreen extends Component {
       this.state;
 
     return (
-      <ScrollView style={{marginHorizontal: 20}}>
-        <StatusBar
-          barStyle={'dark-content'}
-          translucent
-          backgroundColor={'rgba(0,0,0,0)'}
-        />
-        
-        {/* Header Section */}
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.greetingText}>Hello,</Text>
-            <Text style={styles.userName}>Irfan</Text>
-          </View>
-          <TouchableOpacity onPress={this.pressHandlerTopUp}>
-            <Image
-              source={require('../../../assets/img/img-user.jpg')}
-              style={styles.imageUser}
-            />
-          </TouchableOpacity>
-        </View>
-
-        {/* Card Section */}
-        <ImageBackground
-          style={styles.card}
-          source={require('../../../assets/img/img_bg_card.png')}>
-          <View style={styles.cardContent}>
-            <Text style={styles.cardName}>Madeline Bond</Text>
-            <Text style={styles.cardNumber}>**** **** **** 1280</Text>
-            <Text style={styles.cardBalanceLabel}>Balance</Text>
-            <Text style={styles.cardBalance}>$5,209,400</Text>
-          </View>
-        </ImageBackground>
-
-        {/* Level Progress Section */}
-        <View style={styles.containerLevel}>
-          <View style={styles.level}>
-            <View style={styles.levelText}>
-              <Text>Level 1</Text>
-              <Text>55% of $10M</Text>
-            </View>
-            <View style={styles.progressBarBackground}>
-              <View style={styles.progressBarFill} />
-            </View>
-          </View>
-        </View>
-
-        {/* Menu Section */}
-        <View style={styles.containerMenu}>
-          <Text style={styles.title}>Do Something</Text>
-          <FlatList
-            data={dataListModule}
-            keyExtractor={item => item.modulId.toString()}
-            numColumns={4} // Display two items per row
-            horizontal={false}
-            scrollEnabled={false}
-            showsVerticalScrollIndicator={false}
-            columnWrapperStyle={styles.listMenu}
-            renderItem={({item}) => (
-              <ItemMenuComponent
-                onPress={() => this.onPressCell(item.modulId)}
-                image={item.Image}
-                title={item.title}
-              />
-            )}
-            ListEmptyComponent={
-              <Text style={styles.emptyListText}>No Data Available</Text>
-            }
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <ScrollView style={{marginHorizontal: 20}}>
+          <StatusBar
+            barStyle={'dark-content'}
+            translucent
+            backgroundColor={'rgba(0,0,0,0)'}
           />
-        </View>
 
-        <MoreMenuModalComponent
-          isVisible={isModalVisible}
-          onClose={this.toggleModal}
-          navigation={this.props.navigation}
-        />
+          {/* Header Section */}
+          <View style={styles.header}>
+            <View>
+              <Text style={styles.greetingText}>Hello,</Text>
+              <Text style={styles.userName}>Irfan</Text>
+            </View>
+            <TouchableOpacity onPress={this.pressHandlerTopUp}>
+              <Image
+                source={require('../../../assets/img/img-user.jpg')}
+                style={styles.imageUser}
+              />
+            </TouchableOpacity>
+          </View>
 
-        {/* Latest Transactions Section */}
-        <View style={styles.containerMenu}>
-          <Text style={styles.title}>Latest Transactions</Text>
-          <View style={styles.listTransactions}>
-            <FlatList
-              data={dataTransaction}
-              keyExtractor={item => item.id}
-              horizontal={false}
-              scrollEnabled={false}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({item}) => (
+          {/* Card Section */}
+          <ImageBackground
+            style={styles.card}
+            source={require('../../../assets/img/img_bg_card.png')}>
+            <View style={styles.cardContent}>
+              <Text style={styles.cardName}>Madeline Bond</Text>
+              <Text style={styles.cardNumber}>**** **** **** 1280</Text>
+              <Text style={styles.cardBalanceLabel}>Balance</Text>
+              <Text style={styles.cardBalance}>$5,209,400</Text>
+            </View>
+          </ImageBackground>
+
+          {/* Level Progress Section */}
+          <View style={styles.containerLevel}>
+            <View style={styles.level}>
+              <View style={styles.levelText}>
+                <Text>Level 1</Text>
+                <Text>55% of $10M</Text>
+              </View>
+              <View style={styles.progressBarBackground}>
+                <View style={styles.progressBarFill} />
+              </View>
+            </View>
+          </View>
+
+          {/* Menu Section */}
+          <View style={styles.containerMenu}>
+            <Text style={styles.title}>Do Something</Text>
+            <View style={styles.listMenu}>
+              {dataListModule.length > 0 ? (
+                dataListModule.map(item => (
+                  <ItemMenuComponent
+                    key={item.modulId.toString()}
+                    onPress={() => this.onPressCell(item.modulId)}
+                    image={item.Image}
+                    title={item.title}
+                  />
+                ))
+              ) : (
+                <Text>No Data Available</Text>
+              )}
+            </View>
+          </View>
+
+          <MoreMenuModalComponent
+            isVisible={isModalVisible}
+            onClose={this.toggleModal}
+            navigation={this.props.navigation}
+          />
+
+          {/* Latest Transactions Section */}
+          <View style={styles.containerMenu}>
+            <Text style={styles.title}>Latest Transactions</Text>
+            <View style={styles.listTransactions}>
+              {dataTransaction.map(item => (
                 <ItemTransactionsComponent
+                  key={item.id}
                   image={item.image}
                   color={item.color}
                   title={item.title}
                   day={item.day}
                   amount={item.amount}
                 />
+              ))}
+            </View>
+          </View>
+
+          {/* Send Again Section */}
+          <View style={styles.containerMenu}>
+            <Text style={styles.title}>Send Again</Text>
+            <FlatList
+              data={data}
+              keyExtractor={item => item.id}
+              horizontal={true} // Enable horizontal scrolling
+              showsHorizontalScrollIndicator={false}
+              initialNumToRender={5}
+              windowSize={5}
+              renderItem={({item}) => (
+                <TouchableOpacity
+                  style={styles.itemContainer}
+                  onPress={this.pressHandler}>
+                  <Image source={item.image} style={styles.itemImage} />
+                  <Text style={styles.itemText}>{item.title}</Text>
+                </TouchableOpacity>
               )}
+              ListEmptyComponent={<Text>No Data Available</Text>}
             />
           </View>
-        </View>
 
-        {/* Send Again Section */}
-        <View style={styles.containerMenu}>
-          <Text style={styles.title}>Send Again</Text>
-          <FlatList
-            data={data}
-            keyExtractor={item => item.id}
-            horizontal={true} // Enable horizontal scrolling
-            scrollEnabled={true} // Ensure scrolling is enabled
-            showsHorizontalScrollIndicator={true} // Show horizontal scroll indicator
-            renderItem={({item}) => (
-              <TouchableOpacity
-                style={styles.itemContainer}
-                onPress={this.pressHandler}>
-                <Image source={ item.image} style={styles.itemImage} />
-                <Text style={styles.itemText}>{item.title}</Text>
-              </TouchableOpacity>
-            )}
-            ListEmptyComponent={
-              <Text style={styles.emptyListText}>No Data Available</Text>
-            }
-          />
-        </View>
-
-        {/* Friendly Tips Section */}
-        <View style={styles.containerMenu}>
-          <Text style={styles.title}>Friendly Tips</Text>
-          <FlatList
-            data={dataFrendly}
-            keyExtractor={item => item.id}
-            horizontal={false}
-            scrollEnabled={false}
-            showsVerticalScrollIndicator={false}
-            renderItem={({item}) => (
-              <ItemFriendlyTipsComponent
-                onPress={() => this.pressHandler(item)}
-                image={item.image}
-                title={item.title}
-              />
-            )}
-            numColumns={2} // Display two items per row
-            columnWrapperStyle={styles.listFriendly}
-          />
-        </View>
-      </ScrollView>
+          {/* Friendly Tips Section */}
+          <View style={styles.containerMenu}>
+            <Text style={styles.title}>Friendly Tips</Text>
+            <View style={styles.listFriendly}>
+              {dataFrendly.map(item => (
+                <ItemFriendlyTipsComponent
+                  key={item.id}
+                  onPress={() => this.pressHandler(item)}
+                  image={item.image}
+                  title={item.title}
+                />
+              ))}
+            </View>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
@@ -256,7 +241,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   header: {
-    marginTop: 50,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -376,6 +361,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
   },
 });
 

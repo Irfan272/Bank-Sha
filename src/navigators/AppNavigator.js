@@ -141,7 +141,7 @@ export default function AppNavigator() {
             headerShown: true,
           }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="PinScreen"
           component={PinScreen}
           options={{

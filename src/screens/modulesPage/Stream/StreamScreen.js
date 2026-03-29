@@ -8,11 +8,12 @@ class StreamScreen extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini StreamScreen</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default StreamScreen;

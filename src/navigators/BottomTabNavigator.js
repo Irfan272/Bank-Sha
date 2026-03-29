@@ -18,10 +18,10 @@ const HistoryStackNavigator = () => {
         name="HistoryScreen"
         component={HistoryScreens}
         options={{
-            headerTitle: () => <CustomHeaderTitle title="History" />,
-            headerStyle: {backgroundColor: 'transparent'},
-            headerTransparent: true, // Membuat header menjadi transparan
-            headerTitleAlign: 'center',
+          headerTitle: () => <CustomHeaderTitle title="History" />,
+          headerStyle: {backgroundColor: 'transparent'},
+          headerTransparent: true, // Membuat header menjadi transparan
+          headerTitleAlign: 'center',
         }}
       />
     </Stack.Navigator>

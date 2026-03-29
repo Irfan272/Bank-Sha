@@ -8,11 +8,12 @@ class TravelScreen extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini TravelScreen</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default TravelScreen;

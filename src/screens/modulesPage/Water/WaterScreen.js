@@ -8,11 +8,12 @@ class WaterScreen extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini WaterScreen</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default WaterScreen;

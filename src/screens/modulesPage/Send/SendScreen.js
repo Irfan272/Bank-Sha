@@ -10,9 +10,8 @@ import {
   View,
 } from 'react-native';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
-import { sendPeopleData } from './data/sendPeople';
+import {sendPeopleData} from './data/sendPeople';
 import SelectPeopleComponent from './component/SelectPeopleComponent';
-
 
 class SendScreen extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class SendScreen extends Component {
     };
   }
 
-  handleBankSelection = (id) => {
+  handleBankSelection = id => {
     this.setState({selectedBank: id});
   };
 
@@ -36,7 +35,6 @@ class SendScreen extends Component {
     }
   }
 
-  
   render() {
     const {data, selectedBank} = this.state;
 
@@ -46,7 +44,7 @@ class SendScreen extends Component {
           <Text style={{fontWeight: 'bold', color: '#14193F', fontSize: 16}}>
             Search
           </Text>
-          
+
           <View style={styles.inputWrapper}>
             <TextInput
               style={styles.input}
@@ -136,6 +134,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
   },
-})
+});
 
 export default SendScreen;

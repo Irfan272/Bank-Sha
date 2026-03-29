@@ -18,11 +18,11 @@ class PinScreen extends Component {
     };
   }
 
-  handleOldPinChange = (text) => {
+  handleOldPinChange = text => {
     this.setState({oldPin: text});
   };
 
-  handleNewPinChange = (text) => {
+  handleNewPinChange = text => {
     this.setState({newPin: text});
   };
 

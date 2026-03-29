@@ -1,12 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, View, Image, StyleSheet, Text } from 'react-native';
+import {TouchableOpacity, View, Image, StyleSheet, Text} from 'react-native';
 
-const ItemMenuComponent = (props) => {
+const ItemMenuComponent = props => {
   return (
-    <TouchableOpacity
-      onPress={props.onPress}
-      style={styles.itemMenu}
-    >
+    <TouchableOpacity onPress={props.onPress} style={styles.itemMenu}>
       <View style={styles.menuItemBackground}>
         <Image style={styles.imageMenu} source={props.image} />
       </View>

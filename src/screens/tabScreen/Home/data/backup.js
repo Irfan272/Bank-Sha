@@ -14,10 +14,9 @@ import ItemMenuComponent from '../../../componen/ItemMenuComponent';
 import ItemTransactionsComponent from '../../../componen/ItemTransactionsComponent';
 import MoreMenuModalComponent from '../../../componen/MoreMenuModalComponent';
 import ItemFriendlyTipsComponent from '../../../componen/ItemFriendlyTipsComponent';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const HomeScreenBackup = () => {
-
   const navigation = useNavigation();
 
   const [isModalVisible, setModalVisible] = useState(false);
@@ -29,14 +28,13 @@ const HomeScreenBackup = () => {
 
   function pressHandlerTopUp() {
     navigation.navigate('TopUp');
-    console.log('Top Up Screens')
+    console.log('Top Up Screens');
   }
 
   function pressHandler() {
     // navigation.navigate('TopUp');
-    console.log('Top Up Screens')
+    console.log('Top Up Screens');
   }
-
 
   useEffect(() => {
     addData();
@@ -203,7 +201,9 @@ const HomeScreenBackup = () => {
           showsHorizontalScrollIndicator={false}
           horizontal
           renderItem={({item}) => (
-            <TouchableOpacity style={styles.itemContainer} onPress={pressHandler} >
+            <TouchableOpacity
+              style={styles.itemContainer}
+              onPress={pressHandler}>
               <Image source={{uri: item.image}} style={styles.itemImage} />
               <Text style={styles.itemText}>{item.title}</Text>
             </TouchableOpacity>
@@ -217,14 +217,28 @@ const HomeScreenBackup = () => {
       <View style={styles.containerMenu}>
         <Text style={styles.title}>Friendly Tips</Text>
         <View style={styles.listFriendly}>
-          <ItemFriendlyTipsComponent onPress={pressHandler} image={require('../../assets/img/img_tips4.png')} title=" Best tips for using a credit Card" />
-          <ItemFriendlyTipsComponent onPress={pressHandler} image={require('../../assets/img/img_tips4.png')} title=" Best tips for using a credit Card" />
-       
+          <ItemFriendlyTipsComponent
+            onPress={pressHandler}
+            image={require('../../assets/img/img_tips4.png')}
+            title=" Best tips for using a credit Card"
+          />
+          <ItemFriendlyTipsComponent
+            onPress={pressHandler}
+            image={require('../../assets/img/img_tips4.png')}
+            title=" Best tips for using a credit Card"
+
         </View>
         <View style={styles.listFriendly}>
-        <ItemFriendlyTipsComponent onPress={pressHandler} image={require('../../assets/img/img_tips4.png')} title=" Best tips for using a credit Card" />
-        <ItemFriendlyTipsComponent onPress={pressHandler} image={require('../../assets/img/img_tips4.png')} title=" Best tips for using a credit Card" />
-       
+          <ItemFriendlyTipsComponent
+            onPress={pressHandler}
+            image={require('../../assets/img/img_tips4.png')}
+            title=" Best tips for using a credit Card"
+          />
+          <ItemFriendlyTipsComponent
+            onPress={pressHandler}
+            image={require('../../assets/img/img_tips4.png')}
+            title=" Best tips for using a credit Card"
+
         </View>
       </View>
     </ScrollView>

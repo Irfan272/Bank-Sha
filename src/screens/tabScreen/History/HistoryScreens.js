@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 10,
     padding: 10,
-    borderTopWidth: 1,  // Menambahkan border atas
-    borderBottomWidth: 1,  // Menambahkan border bawah
+    borderTopWidth: 1, // Menambahkan border atas
+    borderBottomWidth: 1, // Menambahkan border bawah
     borderColor: '#E0E0E0', // Warna border (misalnya abu-abu terang)
   },
   iconContainer: {

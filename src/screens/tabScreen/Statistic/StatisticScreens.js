@@ -8,11 +8,12 @@ class StatisticScreens extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini StatisticScreens</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default StatisticScreens;

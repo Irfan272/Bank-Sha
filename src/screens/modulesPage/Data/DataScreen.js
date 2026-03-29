@@ -8,11 +8,12 @@ class DataScreen extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini DataScreen</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default DataScreen;

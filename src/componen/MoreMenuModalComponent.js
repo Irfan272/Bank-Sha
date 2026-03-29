@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Modal, StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import React, {Component} from 'react';
+import {Modal, StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import ItemMenuComponent from './ItemMenuComponent';
-import { moreListModul } from '../screens/tabScreen/Home/data/listModul';
-import { FlatList } from 'react-native-gesture-handler';
+import {moreListModul} from '../screens/tabScreen/Home/data/listModul';
+import {FlatList} from 'react-native-gesture-handler';
 
 class MoreMenuModalComponent extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class MoreMenuModalComponent extends Component {
   }
 
   async onPressCell(dataListModule) {
-    const { navigation } = this.props;
+    const {navigation} = this.props;
 
     switch (dataListModule) {
       case 1:
@@ -54,15 +54,14 @@ class MoreMenuModalComponent extends Component {
   }
 
   render() {
-    const { isVisible, onClose } = this.props; // Fixed to use props
+    const {isVisible, onClose} = this.props; // Fixed to use props
 
     return (
       <Modal
         visible={isVisible}
         transparent={true}
         animationType="slide"
-        onRequestClose={onClose}
-      >
+        onRequestClose={onClose}>
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <TouchableOpacity onPress={onClose} style={styles.closeButton}>
@@ -74,10 +73,10 @@ class MoreMenuModalComponent extends Component {
             <View style={styles.menuContainer}>
               <FlatList
                 data={moreListModul}
-                keyExtractor={(item) => item.modulId.toString()}
+                keyExtractor={item => item.modulId.toString()}
                 scrollEnabled={true}
                 numColumns={3} // Display three items per row
-                renderItem={({ item }) => (
+                renderItem={({item}) => (
                   <ItemMenuComponent
                     onPress={() => this.onPressCell(item.modulId)}
                     image={item.Image}

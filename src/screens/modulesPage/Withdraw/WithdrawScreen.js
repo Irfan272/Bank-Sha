@@ -8,11 +8,12 @@ class WithdrawScreen extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini WithdrawScreen</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default WithdrawScreen;

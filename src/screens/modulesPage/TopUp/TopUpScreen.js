@@ -21,7 +21,7 @@ class TopUpScreen extends Component {
     };
   }
 
-  handleBankSelection = (id) => {
+  handleBankSelection = id => {
     this.setState({selectedBank: id});
   };
 
@@ -43,7 +43,7 @@ class TopUpScreen extends Component {
         this.props.navigation.navigate('ResultScreen', {selectedBank: bankId});
         return;
       case 3:
- this.props.navigation.navigate('ResultScreen', {selectedBank: bankId});
+        this.props.navigation.navigate('ResultScreen', {selectedBank: bankId});
         return;
       case 4:
         this.props.navigation.navigate('ResultScreen');

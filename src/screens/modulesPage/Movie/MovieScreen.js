@@ -8,11 +8,12 @@ class MovieScreen extends Component {
   }
 
   render() {
-    return <View>
+    return (
+      <View>
         <Text>Ini MovieScreen</Text>
-    </View>;
+      </View>
+    );
   }
 }
-
 
 export default MovieScreen;

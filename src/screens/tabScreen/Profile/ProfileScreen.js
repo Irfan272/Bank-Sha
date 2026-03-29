@@ -20,19 +20,19 @@ class ProfileScreen extends Component {
     };
   }
 
-  handleUsernameChange = (text) => {
+  handleUsernameChange = text => {
     this.setState({username: text});
   };
 
-  handleFullNameChange = (text) => {
+  handleFullNameChange = text => {
     this.setState({fullname: text});
   };
 
-  handleEmailChange = (text) => {
+  handleEmailChange = text => {
     this.setState({email: text});
   };
 
-  handlePasswordChange = (text) => {
+  handlePasswordChange = text => {
     this.setState({password: text});
   };
 
@@ -94,32 +94,33 @@ class ProfileScreen extends Component {
 
           {/* Button Continue */}
 
-        <View style={{marginTop: 20}}>
-          <TouchableOpacity
-            style={{
-              backgroundColor:  '#5142E6' ,
-              borderRadius: 20,
-              paddingVertical: 15,
-              paddingHorizontal: 20,
-              marginTop: 10,
-              marginBottom: 20,
-              // elevation: 3, // Shadow for Android
-              // shadowColor: '#000', // Shadow for iOS
-              shadowOpacity: 0.1,
-              shadowRadius: 5,
-              shadowOffset: {width: 0, height: 2},
-            }}
-            onPress={() => this.props.navigation.navigate('')}>
-            <View
+          <View style={{marginTop: 20}}>
+            <TouchableOpacity
               style={{
-                alignItems: 'center',
-              }}>
-              <Text style={{fontSize: 14, fontWeight: 'bold', color: '#ffff'}}>
-                Continue
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+                backgroundColor: '#5142E6',
+                borderRadius: 20,
+                paddingVertical: 15,
+                paddingHorizontal: 20,
+                marginTop: 10,
+                marginBottom: 20,
+                // elevation: 3, // Shadow for Android
+                // shadowColor: '#000', // Shadow for iOS
+                shadowOpacity: 0.1,
+                shadowRadius: 5,
+                shadowOffset: {width: 0, height: 2},
+              }}
+              onPress={() => this.props.navigation.navigate('')}>
+              <View
+                style={{
+                  alignItems: 'center',
+                }}>
+                <Text
+                  style={{fontSize: 14, fontWeight: 'bold', color: '#ffff'}}>
+                  Continue
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </SafeAreaView>
     );
